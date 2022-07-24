@@ -67,8 +67,12 @@ export class BibtexAdderModal extends Modal {
             if (bibtex_content.includes(`{${bibtex_key},`)) {
               new Notice(`${bibtex_key} already exists.`)
             } else {
-              // Append BibTeX entry.
-              this.app.vault.append(bibtexFile, bibtex_string)
+              // Add BibTeX entry at the top of file.
+              // When the Citations plugin loads articles it does so in order
+              // inside the bib file. To make it easier to find when creating
+              // a literature note we put it at the top
+              let new_bibtex_content = bibtex_string + bibtex_content;
+              this.app.vault.modify(bibtexFile, new_bibtex_content)
               new Notice(`Added ${bibtex_key}.`)
             }
           }
