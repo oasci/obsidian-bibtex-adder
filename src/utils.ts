@@ -8,7 +8,10 @@ export function getFirstWord(title: string): string {
   title = title.replace(/[\W_]+/g," ");
   // Remove unwanted first words.
   title = ' ' + title;  // Makes it easier for finding.
-  let articles = ['and', 'the', 'a', 'an', 'of'];
+  let articles = [
+    'a', 'i', 'of', 'to', 'in', 'it', 'is', 'be', 'as', 'at', 'by', 'or', 'on',
+    'do', 'if', 'an', 'the', 'and', 'are', 'but', 'can', 'its', 'that', 'this'
+  ];
   for (let i = 0; i < articles.length; i++) {
     let article = articles[i];
     title = title.replace(
