@@ -28,6 +28,10 @@ export async function getBibtex(doi: string): Promise<[string, string]> {
     )
   }
 
+  // Make BibTeX keys lowercase.
+  bibtex_string = bibtex_string.replace(`DOI=`, 'doi=');
+  bibtex_string = bibtex_string.replace(`ISSN=`, 'issn=');
+
   bibtex_string = `\n` + bibtex_string
   return [ bibtex_key, bibtex_string ];
 }
