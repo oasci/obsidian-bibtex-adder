@@ -7,6 +7,8 @@ export async function getBibtex(doi: string): Promise<[string, string]> {
   const crossrefData = await retrieveCrossref(doi);
   let bibtex_string = await retrieveBibtex(doi);
 
+  console.log(crossrefData);
+
   // Change to google scholar bibtex key
   let bibtex_key = gscholarBibtexKey(crossrefData);
   let year = crossrefData.published['date-parts'][0][0];
