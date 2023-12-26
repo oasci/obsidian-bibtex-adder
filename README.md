@@ -13,10 +13,7 @@ Currently, only the Google scholar citation key format is used to generate BibBt
 
 ## Installation
 
-- Clone this repo (``git clone github.com/aalexmmaldonado/obsidian-bibtex-adder``).
-- `npm i` or `yarn` to install dependencies.
-- `npm run dev` to compile.
-- Copy `main.js` and `manifest.json` into your vault in `.obsidian/plugins/obsidian-bibtex-adder`.
+Download `main.js` and `manifest.json` from [the latest release](https://github.com/oasci/obsidian-bibtex-adder/releases) and move them to your vault at `.obsidian/plugins/obsidian-bibtex-adder`.
 
 ## License
 
