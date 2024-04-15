@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Notice } from 'obsidian';
-import { addStr, gscholarBibtexKey } from './utils';
+import { gscholarBibtexKey } from './utils';
 
 // Creates BibTeX content from crossref information
 export async function getBibtex(doi: string): Promise<[string, string]> {
@@ -21,14 +21,14 @@ export async function getBibtex(doi: string): Promise<[string, string]> {
     RegExp(` @`, ""), `@`
   )
 
-  // Add abstract if available.
-  let abstract = crossrefData.abstract;
-  if (abstract != undefined) {
-    bibtex_string = addStr(
-      bibtex_string, bibtex_string.length-3,
-      ', abstract={' + crossrefData.abstract + '}'
-    )
-  }
+//   Add abstract if available.
+//   let abstract = crossrefData.abstract;
+//   if (abstract != undefined) {
+//     bibtex_string = addStr(
+//       bibtex_string, bibtex_string.length-3,
+//       ', abstract={' + crossrefData.abstract + '}'
+//     )
+//   }
 
   // Make BibTeX keys lowercase.
   bibtex_string = bibtex_string.replace(`DOI=`, 'doi=');
