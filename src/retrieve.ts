@@ -10,8 +10,8 @@ export async function getBibtex(doi: string): Promise<[string, string]> {
   console.log(crossrefData);
 
   // Change to google scholar bibtex key
-  let bibtex_key = gscholarBibtexKey(crossrefData);
-  let year = crossrefData.published['date-parts'][0][0];
+  const bibtex_key = gscholarBibtexKey(crossrefData);
+  const year = crossrefData.published['date-parts'][0][0];
   bibtex_string = bibtex_string.replace(
     RegExp(`{${year}, title=`, ""), `{${bibtex_key}, title=`
   );
@@ -19,16 +19,11 @@ export async function getBibtex(doi: string): Promise<[string, string]> {
   // Ensure BibTeX does not start with a space
   bibtex_string = bibtex_string.replace(
     RegExp(` @`, ""), `@`
-  )
+  );
 
-//   Add abstract if available.
-//   let abstract = crossrefData.abstract;
-//   if (abstract != undefined) {
-//     bibtex_string = addStr(
-//       bibtex_string, bibtex_string.length-3,
-//       ', abstract={' + crossrefData.abstract + '}'
-//     )
-//   }
+  // Remove abstract
+  const abstractRegex = /abstract\s*=\s*{[^{}]*}/;
+  bibtex_string = bibtex_string.replace(abstractRegex, '');
 
   // Make BibTeX keys lowercase.
   bibtex_string = bibtex_string.replace(`DOI=`, 'doi=');
