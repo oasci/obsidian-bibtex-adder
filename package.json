@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-bibtex-adder",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Add BibTeX entries from DOIs using the Crossref REST API.",
 	"main": "main.js",
 	"scripts": {
