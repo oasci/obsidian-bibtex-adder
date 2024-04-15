@@ -11,10 +11,8 @@ export async function getBibtex(doi: string): Promise<[string, string]> {
 
   // Change to google scholar bibtex key
   const bibtex_key = gscholarBibtexKey(crossrefData);
-  const year = crossrefData.published['date-parts'][0][0];
-  bibtex_string = bibtex_string.replace(
-    RegExp(`{${year}, title=`, ""), `{${bibtex_key}, title=`
-  );
+  const keyRegex = /(@\w+{)[^,]+(?=,)/;
+  bibtex_string = bibtex_string.replace(keyRegex, `$1${bibtex_key}`);
 
   // Ensure BibTeX does not start with a space
   bibtex_string = bibtex_string.replace(
