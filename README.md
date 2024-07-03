@@ -1,5 +1,7 @@
 # Obsidian BibTeX Adder
 
+**Not maintained:** This plugin is no longer maintained and has been incorporated into [citater](https://gitlab.com/oasci/software/obsidian-citater-plugin).
+
 Add BibTeX entries from DOIs using the [Crossref REST API](https://www.crossref.org/documentation/retrieve-metadata/rest-api/).
 
 ## Usage
